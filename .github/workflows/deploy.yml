@@ -15,18 +15,15 @@ jobs:
       - name: Stop old container
         shell: pwsh
         run: |
-          Write-Host "Buscando contenedor existente..."
-          $exists = docker ps -a --format "{{.Names}}" | Select-String -Pattern "^miweb$"
-          if ($exists) {
-            Write-Host "Contenedor encontrado. Eliminando..."
-            docker stop miweb
-            docker rm miweb
-          } else {
-            Write-Host "No existe contenedor previo."
+          Write-Host "Eliminando contenedor viejo si existe..."
+          try {
+            docker rm -f miweb -ErrorAction SilentlyContinue
+          } catch {
+            Write-Host "No había contenedor viejo."
           }
 
       - name: Build and Deploy
+        shell: pwsh
         run: |
-          docker compose down
           docker compose build --no-cache
           docker compose up -d
