@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    image: miweb:latest
+    container_name: miweb
+    ports:
+      - "8080:80"
+    restart: always
