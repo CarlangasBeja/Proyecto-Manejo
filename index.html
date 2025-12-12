@@ -1,20 +1,43 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Web Informativa</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <header>
     <h1>Mi Web Informativa</h1>
-    <p>Bienvenido. Esta es una página sencilla desplegada con Docker.</p>
-    <p>Última actualización: <span id="ts"></span></p>
+    <p class="subtitle">Bienvenido a nuestra página desplegada con Docker</p>
+  </header>
 
-    <div class="footer">
-      © 2025 - Sitio demo
-    </div>
-  </div>
+  <main>
+    <section class="info">
+      <h2>Últimas noticias</h2>
+      <p>Última actualización: <span id="ts"></span></p>
+      <p>Este es un sitio de demostración con diseño moderno y responsive.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Sección 1</h3>
+        <p>Contenido interesante sobre nuestra web y Docker.</p>
+      </div>
+      <div class="card">
+        <h3>Sección 2</h3>
+        <p>Más información y ejemplos prácticos para tu proyecto.</p>
+      </div>
+      <div class="card">
+        <h3>Sección 3</h3>
+        <p>Noticias y actualizaciones de manera elegante y clara.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 - Sitio demo
+  </footer>
 
   <script>
     document.getElementById('ts').innerText = new Date().toLocaleString();
