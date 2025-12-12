@@ -9,21 +9,24 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      # 1️⃣ Clonar el repo
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 2️⃣ Eliminar contenedor viejo si existe
       - name: Stop old container
-        shell: pwsh
+        shell: powershell
         run: |
           Write-Host "Eliminando contenedor viejo si existe..."
           try {
-            docker rm -f miweb -ErrorAction SilentlyContinue
+              docker rm -f miweb -ErrorAction SilentlyContinue
           } catch {
-            Write-Host "No había contenedor viejo."
+              Write-Host "No había contenedor viejo."
           }
 
+      # 3️⃣ Construir la imagen y levantar contenedor
       - name: Build and Deploy
-        shell: pwsh
+        shell: powershell
         run: |
           docker compose build --no-cache
           docker compose up -d
