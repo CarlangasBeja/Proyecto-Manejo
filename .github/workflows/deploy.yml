@@ -12,10 +12,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Stop old container
+        shell: pwsh
+        run: |
+          Write-Host "Buscando contenedor existente..."
+          $exists = docker ps -a --format "{{.Names}}" | Select-String -Pattern "^miweb$"
+          if ($exists) {
+            Write-Host "Contenedor encontrado. Eliminando..."
+            docker stop miweb
+            docker rm miweb
+          } else {
+            Write-Host "No existe contenedor previo."
+          }
+
       - name: Build and Deploy
         run: |
-          docker stop miweb || true
-          docker rm miweb || true
-          docker compose down || true
+          docker compose down
           docker compose build --no-cache
           docker compose up -d
