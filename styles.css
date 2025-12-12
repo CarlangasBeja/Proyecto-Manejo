@@ -6,40 +6,45 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(120deg, #fdfbfb, #ebedee);
-  color: #333;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  background: #0f111a;
+  color: #e0e0e0;
   line-height: 1.6;
 }
 
+/* Header tecnológico */
 header {
-  background-color: #4a90e2;
-  color: white;
+  background: linear-gradient(135deg, #0ff, #08f);
+  color: #fff;
   text-align: center;
-  padding: 2rem 1rem;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  padding: 3rem 1rem;
+  border-bottom: 3px solid #0ff;
+  box-shadow: 0 0 20px #0ff;
 }
 
 header .subtitle {
   font-weight: 300;
   margin-top: 0.5rem;
+  color: #aef;
 }
 
+/* Contenido principal */
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
+/* Sección info */
 .info {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
+  background: #1a1c29;
+  padding: 2rem;
+  border-radius: 15px;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px #08f;
 }
 
+/* Cards estilo tecnológico */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -47,22 +52,36 @@ main {
 }
 
 .card {
-  background: white;
+  background: #1a1c29;
   flex: 1 1 250px;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #0ff;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #0ff, 0 0 50px #08f;
 }
 
+.card h3 {
+  color: #0ff;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-top: 2rem;
-  color: #666;
+  color: #888;
   font-size: 0.9rem;
+  border-top: 1px solid #0ff;
+}
+
+/* Animación para la fecha */
+#ts {
+  color: #0ff;
+  font-weight: bold;
 }
