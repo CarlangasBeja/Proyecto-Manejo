@@ -14,6 +14,8 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          docker compose down
+          docker stop miweb || true
+          docker rm miweb || true
+          docker compose down || true
           docker compose build --no-cache
           docker compose up -d
